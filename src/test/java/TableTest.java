@@ -95,25 +95,12 @@ public class TableTest {
         WebElement find = wd.findElement(By.cssSelector("tr:nth-child(2) td:nth-child(2)"));
         Assert.assertEquals(find.getText(),"Maria Anders");
 
-
-
-
-
-
-
-
-
-
-
     }
 
 
     @AfterMethod
     public void tearDown(){
-
-wd.quit();
+        wd.quit();
     }
-
-
 
 }
