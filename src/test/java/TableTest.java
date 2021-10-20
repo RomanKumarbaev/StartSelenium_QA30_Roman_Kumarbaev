@@ -40,10 +40,17 @@ public class TableTest {
         WebElement col2 = wd.findElement(By.cssSelector("tr:nth-child(4) td:nth-child(2)"));
         WebElement col3 = wd.findElement(By.cssSelector("tr:nth-child(4) td:last-child"));
 
-        System.out.println("row4 = "+col1.getText()+" | "+col2.getText()+" | "+col3.getText());
+        //xpath*********************************************************************************************************
+        WebElement W=wd.findElement(By.xpath("//tr[4]"));
+        System.out.println(W.getText());
+
+
+
+
+        /*System.out.println("row4 = "+col1.getText()+" | "+col2.getText()+" | "+col3.getText());
         System.out.println();
 
-        Assert.assertEquals(col2.getText(),"Francisco Chang");
+        Assert.assertEquals(col2.getText(),"Francisco Chang");*/
 
     }
 
@@ -64,33 +71,31 @@ public class TableTest {
         System.out.println("Numbers of Columns = " + c);
         System.out.println();
 
-        WebElement printLC1 = wd.findElement(By.cssSelector("tr:nth-child(2) td:last-child"));
-        WebElement printLC2 = wd.findElement(By.cssSelector("tr:nth-child(3) td:last-child"));
-        WebElement printLC3 = wd.findElement(By.cssSelector("tr:nth-child(4) td:last-child"));
-        WebElement printLC4 = wd.findElement(By.cssSelector("tr:nth-child(5) td:last-child"));
-        WebElement printLC5 = wd.findElement(By.cssSelector("tr:nth-child(6) td:last-child"));
-        WebElement printLC6 = wd.findElement(By.cssSelector("tr:nth-child(7) td:last-child"));
-        WebElement printLC7 = wd.findElement(By.cssSelector("tr:nth-child(8) td:last-child"));
-        WebElement printLC8 = wd.findElement(By.cssSelector("tr:nth-child(9) td:last-child"));
+        //xPath ********************************************************************************************************
+        List<WebElement> col1 = wd.findElements(By.xpath("//th"));
+        List<WebElement> col2 = wd.findElements(By.xpath("//td"));
+        a = col1.size();
+        b = col2.size();
 
-        System.out.println("---Printed last Columns---");
+        System.out.println("Numbers of Columns xPath = " + c);
         System.out.println();
-        System.out.println(printLC1.getText());
-        System.out.println();
-        System.out.println(printLC2.getText());
-        System.out.println();
-        System.out.println(printLC3.getText());
-        System.out.println();
-        System.out.println(printLC4.getText());
-        System.out.println();
-        System.out.println(printLC5.getText());
-        System.out.println();
-        System.out.println(printLC6.getText());
-        System.out.println();
-        System.out.println(printLC7.getText());
-        System.out.println();
-        System.out.println(printLC8.getText());
-        System.out.println();
+
+
+        /*List<WebElement> lastColunm = wd.findElements(By.cssSelector("td:last-child"));
+
+        for (WebElement print :lastColunm) {
+            System.out.println(print.getText());
+        }*/
+
+        //xPath*********************************************************************************************************
+
+        List<WebElement> lastCol = wd.findElements(By.xpath("//td[last()]"));
+
+        for (WebElement s:lastCol) {
+            System.out.println(s.getText());
+        }
+
+
 
         WebElement find = wd.findElement(By.cssSelector("tr:nth-child(2) td:nth-child(2)"));
         Assert.assertEquals(find.getText(),"Maria Anders");
